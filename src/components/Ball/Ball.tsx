@@ -2,10 +2,10 @@ import React, { FunctionComponent } from 'react';
 
 type TProps = {};
 
-const App: FunctionComponent<TProps> = () => {
+const Ball: FunctionComponent<TProps> = () => {
   return (
-    <div>Game</div>
+    <div>Ball</div>
   );
 };
 
-export default App;
+export default Ball;
