@@ -1,0 +1,44 @@
+@import '../../helpers.scss';
+
+.Point {
+  position: relative;
+  margin: -1px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  cursor: pointer;
+  
+  &:after {
+    content: '';
+    display: block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #FFF;
+    z-index: 10;
+  }  
+
+  &:hover:after {
+    background-color: #D41;
+  }
+
+  &Direction {
+    width: 3px;
+    height: 100%;
+    background-color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -1px;
+    transform-origin: center 0;
+
+    @for $i from 0 through 7 {
+      &--#{pow(2, $i)} {
+        transform: rotate(180deg - 45deg * $i);
+      }
+    }
+  }
+}
