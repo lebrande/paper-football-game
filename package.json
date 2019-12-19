@@ -1,0 +1,36 @@
+{
+  "name": "paper-football-game",
+  "version": "1.0.0",
+  "description": "Paper football game",
+  "main": "index.tsx",
+  "scripts": {
+    "start": "parcel ./index.html",
+    "build": "parcel build ./index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lebrande/paper-football-game.git"
+  },
+  "author": "Jakub Pusiak | Lebrande",
+  "bugs": {
+    "url": "https://github.com/lebrande/paper-football-game/issues"
+  },
+  "homepage": "https://github.com/lebrande/paper-football-game#readme",
+  "devDependencies": {
+    "@babel/core": "^7.7.5",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/preset-react": "^7.7.4",
+    "@types/react": "^16.9.16",
+    "@types/react-dom": "^16.9.4",
+    "@types/react-redux": "^7.1.5",
+    "typescript": "^3.7.3"
+  },
+  "dependencies": {
+    "react": "^16.4.0",
+    "react-dom": "^16.12.0",
+    "react-redux": "^6.0.0 || ^7.1.0",
+    "redux": "^3.6.0 || ^4.0.0",
+    "redux-observable": "^1.2.0",
+    "rxjs": ">=6.0.0-beta.0 <7"
+  }
+}
