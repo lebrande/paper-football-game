@@ -1,21 +1,39 @@
 import React, { FunctionComponent } from 'react';
+import { connect } from 'react-redux';
+import { compose } from 'recompose';
+import { createStructuredSelector } from 'reselect';
 
 import Point from '../Point/Point';
-import { INITIAL_POINTS } from '../../initialPoints';
 
 import './Game.scss';
+import {
+  ballPositionSelector,
+  worldSelector,
+  availableNextStepsSelector,
+} from '../../reducers/game/selectors';
 
 type TProps = {};
+type TInnerProps = TProps & {
+  ballPossition: [number, number],
+  world: number[][];
+  availableNextSteps: [number, number][],
+};
 
-const Game: FunctionComponent<TProps> = () => {
+const Game: FunctionComponent<TInnerProps> = ({
+  ballPossition,
+  world,
+  availableNextSteps,
+}) => {
   return (
     <div className="Game">
-      {INITIAL_POINTS.map((row, rowIndex) => (
+      {world.map((row, rowIndex) => (
         <div key={rowIndex} className="GameRow">
           {row.map((state, columnIndex) => (
             <Point
               key={columnIndex}
               state={state}
+              current={ballPossition[0] === columnIndex && ballPossition[1] === rowIndex}
+              available={availableNextSteps.some((step) => step[0] === columnIndex && step[1] === rowIndex)}
             />
           ))}
         </div>
@@ -24,4 +42,16 @@ const Game: FunctionComponent<TProps> = () => {
   );
 };
 
-export default Game;
+const mapStateToProps = createStructuredSelector({
+  ballPossition: ballPositionSelector,
+  world: worldSelector,
+  availableNextSteps: availableNextStepsSelector,
+});
+
+const enhance = compose<TInnerProps, TProps>(
+  connect(
+    mapStateToProps,
+  ),
+);
+
+export default enhance(Game);

@@ -10,6 +10,7 @@
   align-items: center;
   overflow: hidden;
   cursor: pointer;
+  border: 1px solid transparent;
   
   &:after {
     content: '';
@@ -40,5 +41,22 @@
         transform: rotate(180deg - 45deg * $i);
       }
     }
+  }
+
+  &Ball {
+    box-sizing: border-box;
+    width: 30px;
+    height: 30px;
+    border: 3px solid #000;
+    background-color: #FFF;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &Available {
+    border-color: coral;
   }
 }

@@ -3,10 +3,11 @@ import {
   TGameActionTypes,
   INIT_GAME,
 } from './types';
+import { INITIAL_POINTS } from '../../initialPoints';
 
 const initialState: TGameState = {
-  width: 500,
-  height: 500,
+  world: INITIAL_POINTS,
+  ballPosition: [3, 5],
 }
 
 export const gameReducer = (

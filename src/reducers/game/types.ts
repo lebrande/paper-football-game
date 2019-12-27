@@ -1,11 +1,11 @@
-export const GAME_STORE_KEY = 'game';
+const PREFIX = 'game';
 
 export type TGameState = {
-  width: number;
-  height: number;
+  world: number[][],
+  ballPosition: [number, number],
 };
 
-export const INIT_GAME = `${GAME_STORE_KEY}/INIT_GAME`;
+export const INIT_GAME = `${PREFIX}/INIT_GAME`;
 
 export type TInitGameAction = {
   type: typeof INIT_GAME;

@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
 
-import { GAME_STORE_KEY } from './reducers/game/types';
 import { gameReducer } from './reducers/game/reducer';
+import { TGameState } from './reducers/game/types';
 
 export const rootReducer = combineReducers({
-  [GAME_STORE_KEY]: gameReducer,
+  game: gameReducer,
 })
 
-export type RootState = {};
+export type RootState = {
+  game: TGameState;
+};
