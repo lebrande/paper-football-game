@@ -10,7 +10,7 @@ export const MOVE_BALL_TO_POINT = `${PREFIX}/MOVE_BALL_TO_POINT`;
 export type TMoveBallToPointAction = {
   type: typeof MOVE_BALL_TO_POINT;
   payload: {
-    point: [number, number];
+    nextStepData: [number, number, number];
   };
 }
 

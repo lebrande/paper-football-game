@@ -50,6 +50,7 @@ export const availableNextStepsSelector = createSelector<
           && nextY >= 0 && nextY <= 10
         ) {
           return [
+            direction,
             nextX,
             nextY,
           ];
@@ -58,7 +59,7 @@ export const availableNextStepsSelector = createSelector<
         return null;
       })
       .filter((value) => !!value)
-      .filter(([x, y]) => !DISABLED_FIELD.some(([disabledX, disabledY]) => x === disabledX && y === disabledY));
+      .filter(([_, x, y]) => !DISABLED_FIELD.some(([disabledX, disabledY]) => x === disabledX && y === disabledY));
 
     return availableNextSteps;
   },

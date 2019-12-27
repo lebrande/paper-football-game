@@ -17,8 +17,8 @@ type TProps = {};
 type TInnerProps = TProps & {
   ballPossition: [number, number],
   world: number[][];
-  availableNextSteps: [number, number][],
-  moveBallToPoint: (point: [number, number]) => void;
+  availableNextSteps: [number, number, number][],
+  moveBallToPoint: (nextStepData: [number, number, number]) => void;
 };
 
 const Game: FunctionComponent<TInnerProps> = ({
@@ -33,7 +33,8 @@ const Game: FunctionComponent<TInnerProps> = ({
         <div key={rowIndex} className="GameRow">
           {row.map((state, columnIndex) => {
             const current = ballPossition[0] === columnIndex && ballPossition[1] === rowIndex;
-            const available = availableNextSteps.some((step) => step[0] === columnIndex && step[1] === rowIndex);
+            const nextStepData = availableNextSteps.find((step) => step[1] === columnIndex && step[2] === rowIndex);
+            const available = !!nextStepData;
 
             return (
               <Point
@@ -41,10 +42,7 @@ const Game: FunctionComponent<TInnerProps> = ({
                 state={state}
                 current={current}
                 available={available}
-                onClick={() => !current && available ? moveBallToPoint([
-                  columnIndex,
-                  rowIndex,
-                ]) : null}
+                onClick={() => !current && available ? moveBallToPoint(nextStepData) : null}
               />
             );
           })}
