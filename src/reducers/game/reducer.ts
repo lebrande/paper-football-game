@@ -1,7 +1,7 @@
 import {
   TGameState,
   TGameActionTypes,
-  INIT_GAME,
+  MOVE_BALL_TO_POINT,
 } from './types';
 import { INITIAL_POINTS } from '../../initialPoints';
 
@@ -15,9 +15,10 @@ export const gameReducer = (
   action: TGameActionTypes,
 ): TGameState => {
   switch (action.type) {
-    case INIT_GAME: {
+    case MOVE_BALL_TO_POINT: {
       return {
         ...state,
+        ballPosition: action.payload.point,
       }
     }
     default:

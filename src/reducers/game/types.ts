@@ -5,10 +5,13 @@ export type TGameState = {
   ballPosition: [number, number],
 };
 
-export const INIT_GAME = `${PREFIX}/INIT_GAME`;
+export const MOVE_BALL_TO_POINT = `${PREFIX}/MOVE_BALL_TO_POINT`;
 
-export type TInitGameAction = {
-  type: typeof INIT_GAME;
+export type TMoveBallToPointAction = {
+  type: typeof MOVE_BALL_TO_POINT;
+  payload: {
+    point: [number, number];
+  };
 }
 
-export type TGameActionTypes = TInitGameAction;
+export type TGameActionTypes = TMoveBallToPointAction;
